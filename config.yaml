@@ -1,0 +1,16 @@
+domain: null
+domain-file: null
+exclude-comments: "#"
+subdomain-file: null
+output-file: subdomains
+output-file-format: yaml # can be json or yaml
+
+scan:
+  passive:
+    status: on
+    engines:
+      - Crtsh
+      - Dnsdumpster
+      - ThreadCrowd
+  active:
+    status: off

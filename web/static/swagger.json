@@ -1,0 +1,65 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Domain API",
+    "description": "An API to return subdomains or whois query of requested domain"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/api/domains/{domain}/whois": {
+      "get": {
+        "tags": [
+          "Whois"
+        ],
+        "description": "Returns whois query of the requested domain.",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "path",
+            "required": true,
+            "description": "The domain which is requested its whois query.",
+            "type": "string"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "What fields of the whois query the api will return. Should be separated by commas.\nExample: registrar,creation_date,expiration_date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whois query of the requested domain"
+          }
+        }
+      }
+    },
+    "/api/domains/{domain}/subdomains": {
+      "get": {
+        "tags": [
+          "Subdomains"
+        ],
+        "description": "Returns subdomains of the requested domain.",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "path",
+            "required": true,
+            "description": "The domain which is requested its subdomains.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subdomains of the requested domain"
+          }
+        }
+      }
+    }
+  }
+}

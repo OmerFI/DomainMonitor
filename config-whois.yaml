@@ -1,0 +1,4 @@
+domain: null
+domain-file: null
+output-file: whois_data
+output-file-format: json # can be json or yaml

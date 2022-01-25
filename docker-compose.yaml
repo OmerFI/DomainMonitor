@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  domainmonitor:
+    build: .
+    user: root
+    # restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db # should be same as the database service name
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=postgres
+    depends_on:
+      - db
+    tty: true
+
+  db:
+    image: postgres
+    # restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
