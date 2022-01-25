@@ -25,7 +25,8 @@ RUN adduser \
     --shell /bin/bash \
     domainmonitor
 
-RUN chown -R 1001:1001 /opt/domainmonitor
+RUN chmod +x /opt/domainmonitor/docker-entrypoint.sh \
+    && chown -R 1001:1001 /opt/domainmonitor
 
 USER 1001
 EXPOSE 8000
