@@ -18,11 +18,12 @@ def get_whois_data(domain: str) -> Tuple[str, str, str]:
 
     if isinstance(creation_date, list):
         creation_date = creation_date[0].strftime("%d.%m.%Y %H:%M:%S")
-    else:
+    elif isinstance(creation_date, datetime):
         creation_date = creation_date.strftime("%d.%m.%Y %H:%M:%S")
+    
     if isinstance(expiration_date, list):
         expiration_date = expiration_date[0].strftime("%d.%m.%Y %H:%M:%S")
-    else:
+    elif isinstance(expiration_date, datetime):
         expiration_date = expiration_date.strftime("%d.%m.%Y %H:%M:%S")
 
     data = {
