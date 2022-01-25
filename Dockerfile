@@ -9,6 +9,7 @@ RUN apt-get update \
     libffi-dev \
     libssl-dev \
     git \
+    dos2unix \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -24,6 +25,8 @@ RUN adduser \
     --gecos "" \
     --shell /bin/bash \
     domainmonitor
+
+RUN dos2unix /opt/domainmonitor/docker-entrypoint.sh
 
 RUN chmod +x /opt/domainmonitor/docker-entrypoint.sh \
     && chown -R 1001:1001 /opt/domainmonitor
