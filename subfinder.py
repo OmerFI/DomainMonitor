@@ -187,6 +187,9 @@ def main(config_file: str, no_print: bool = False):
     elif domain_file == None:
         domains = [domain]
     else:
+        if not os.path.exists(domain_file):
+            _print(f"No such file or directory: '{domain_file}', exiting...")
+            exit()
         domains = read_file(
             domain_file, ext=get_domain, exclude_comments=exclude_comments
         )
@@ -208,7 +211,7 @@ def main(config_file: str, no_print: bool = False):
         exit()
     elif subdomain_file != None:
         if not os.path.exists(subdomain_file):
-            print(f"No such file or directory: '{subdomain_file}', exiting...")
+            _print(f"No such file or directory: '{subdomain_file}', exiting...")
             exit()
         fuzsubdomains = read_file(subdomain_file)
 
