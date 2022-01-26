@@ -17,11 +17,19 @@ services:
       - db
     tty: true
 
+  nginx:
+    image: nginx
+    restart: always
+    volumes:
+      - ./conf/nginx/http.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    depends_on:
+      - domainmonitor
+
   db:
     image: postgres
     restart: always
-    ports:
-      - "5433:5432"
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
