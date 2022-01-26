@@ -8,7 +8,7 @@ You can test the web app using docker:
 docker-compose up -d
 ```
 
-And go to http://127.0.0.1:8000.
+And go to http://127.0.0.1.
 
 ## API Endpoints
 
