@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from typing import Iterable
 import yaml
+import os
 
 from utils import get_random_user_agent, get_domain, read_file, unique_list
 
@@ -206,6 +207,9 @@ def main(config_file: str, no_print: bool = False):
         _print("No subdomain file is specified, exiting...")
         exit()
     elif subdomain_file != None:
+        if not os.path.exists(subdomain_file):
+            print(f"No such file or directory: '{subdomain_file}', exiting...")
+            exit()
         fuzsubdomains = read_file(subdomain_file)
 
     chosen_engines = []
