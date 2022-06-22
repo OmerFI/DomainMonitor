@@ -1,5 +1,7 @@
 # Domain Monitor
 
+DomainMonitor is a web project that has a RESTful API to get a domain's subdomains and whois data. 
+
 ![Domain Monitor Screenshot](images/web_screenshot.png)
 
 You can test the web app using docker:
