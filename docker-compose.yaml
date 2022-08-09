@@ -3,6 +3,7 @@ version: "3.9"
 services:
   domainmonitor:
     build: .
+    container_name: domainmonitor
     user: root
     restart: always
     ports:
