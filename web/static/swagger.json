@@ -6,7 +6,6 @@
     "description": "An API to return subdomains or whois query of requested domain"
   },
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
