@@ -11,12 +11,14 @@ DB_PORT = os.environ.get("DB_PORT") or "5432"
 DB_USER = os.environ.get("DB_USER") or "postgres"
 DB_PASSWORD = os.environ.get("DB_PASSWORD")
 DB_NAME = os.environ.get("DB_NAME") or "postgres"
+DATABASE_URL = os.environ.get("DATABASE_URL") or f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 SUBDOMAINS_FILE = "subdomains.yaml"
 WHOIS_FILE = "whois_data.yaml"
 
 conn = psycopg2.connect(
-    dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST, port=DB_PORT
+    # dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST, port=DB_PORT
+    DATABASE_URL
 )
 c = conn.cursor()
 
